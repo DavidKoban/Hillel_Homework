@@ -5,6 +5,8 @@ services:
   redis:
     image: redis:alpine
     container_name: redis
+    environment:
+      - TZ=Europe/Kiev
 
   # Database Postgres
   db:
@@ -15,6 +17,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - TZ=Europe/Kiev
     container_name: postgres_db
 
   # Django Application
