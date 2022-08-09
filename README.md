@@ -17,6 +17,8 @@ https://t.me/deliverytimeendbot
 ## Инструкци запуска
 
 ```
+git clone https://github.com/DavidKoban/Hillel_Homework/
+
 cd Hillel_Homework
 
 docker-compose build
