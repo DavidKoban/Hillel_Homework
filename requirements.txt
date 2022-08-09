@@ -9,3 +9,4 @@ pycbrf==1.0.0
 google-api-python-client==2.51.0
 django_celery_beat==2.3.0
 pytelegrambotapi==4.6.1
+django-environ==0.9.0

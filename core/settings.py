@@ -1,19 +1,19 @@
 from pathlib import Path
+import environ
+
+
+env = environ.Env(
+    ALLOWED_HOSTS=(list, [])
+)
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = '4i_$2)i_-o(4s@cos1ypw)sw6x1ih#p_n_y0yn$qe)lmsnoyb0'
+SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
-
-ALLOWED_HOSTS = ["localhost",
-                 "0.0.0.0",
-                 "127.0.0.1",
-                 ]
-
+DEBUG = env('DEBUG', bool)
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -59,12 +59,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
+        'ENGINE': env('ENGINE'),
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
     }
 }
 
@@ -98,8 +98,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_ENABLED = True
-CELERY_BROKER_URL = "redis://redis:6379"
-CELERY_RESULT_BACKEND = "redis://redis:6379"
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
-CELERY_TIME_ZONE = 'Europe/Kiev'
+CELERY_ENABLED = env('CELERY_ENABLED', bool)
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
+CELERY_BEAT_SCHEDULER = env('CELERY_BEAT_SCHEDULER')
+CELERY_TIME_ZONE = env('CELERY_TIME_ZONE')
