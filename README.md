@@ -16,6 +16,8 @@ https://t.me/deliverytimeendbot
 
 ## Инструкци запуска
 
+Для запуска контейнеров Docker советую установить Docker Desktop
+
 ```
 git clone https://github.com/DavidKoban/Hillel_Homework/
 
