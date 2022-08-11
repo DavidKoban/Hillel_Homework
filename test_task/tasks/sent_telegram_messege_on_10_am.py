@@ -20,6 +20,3 @@ def sent_telegram_messege_on_10_am():
             str_orders_list_delivery_time_end = str_orders_list_delivery_time_end + str(order_delivery_time_end[0]) + "\n"
         for user_id in users_list_id:
             bot.send_message(user_id[0], str_orders_list_delivery_time_end)
-            print(orders_list_delivery_time_end)
-
-
